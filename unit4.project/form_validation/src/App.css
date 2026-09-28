@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: white;
+}
+
+.app {
+  padding: 20px;
+}

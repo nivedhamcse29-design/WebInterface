@@ -1,0 +1,32 @@
+.letterhead {
+  background: purple;
+  color: var(--parchment);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 26px 6vw;
+  border-bottom: 3px solid var(--brass);
+}
+
+.letterhead__crest {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.letterhead__college {
+  margin: 0 0 4px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  color: var(--brass-light);
+}
+
+.letterhead__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.01em;
+}

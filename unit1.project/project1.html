@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter App</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+        body{
+            background: linear-gradient(135deg, #2c003e, #6a0572, #a4508b);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        .container{
+            width:350px;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
+        }
+        h2{
+            color:#0b020c;
+            margin-bottom:20px;
+            font-size:30px;
+        }
+        #count{
+            font-size:80px;
+            color:#a91461;
+            margin:25px 0;
+            font-weight:bold;
+        }
+        .buttons{
+            display:flex;
+            justify-content:center;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+        button{
+            padding:12px 22px;
+            font-size:18px;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            color:white;
+            transition:0.3s;
+        }
+        .increase{
+            background:#00b894;
+        }
+        .increase:hover{
+            background:#009970;
+            transform:scale(1.08);
+        }
+        .decrease{
+            background:#e17055;
+        }
+        .decrease:hover{
+            background:#d35400;
+            transform:scale(1.08);
+        }
+        .reset{
+            background:#0984e3;
+        }
+        .reset:hover{
+            background:#0652DD;
+            transform:scale(1.08);
+        }
+        button:active{
+            transform:scale(0.95);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>🎯 Counter App</h2>
+    <h1 id="count">0</h1>
+    <div class="buttons">
+        <button class="increase" onclick="increase()">+1</button>
+        <button class="decrease" onclick="decrease()">-1</button>
+        <button class="reset" onclick="reset()">Reset</button>
+    </div>
+</div>
+<script>
+let count = 0;
+function increase(){
+    count++;
+    document.getElementById("count").innerHTML = count;
+}
+function decrease(){
+    count--;
+    document.getElementById("count").innerHTML = count;
+}
+function reset(){
+    count = 0;
+    document.getElementById("count").innerHTML = count;
+}
+</script>
+</body>
+</html>

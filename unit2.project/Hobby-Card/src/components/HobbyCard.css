@@ -1,0 +1,54 @@
+.hobby-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid rgba(43, 38, 32, 0.18);
+  border-radius: 3px;
+  padding: 30px 26px 26px;
+  width: 250px;
+  box-shadow: 0 1px 0 rgba(43, 38, 32, 0.06), 0 10px 24px -14px rgba(0, 0, 0, 0.45);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-top: 3px solid var(--accent);
+}
+
+.hobby-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1px 0 rgba(43, 38, 32, 0.06), 0 18px 30px -16px rgba(0, 0, 0, 0.55);
+}
+
+.hobby-card__icon {
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.hobby-card__title {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.hobby-card__description {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(43, 38, 32, 0.8);
+  margin: 0;
+}
+
+.hobby-card--clay {
+  --accent: #b5622f;
+}
+.hobby-card--moss {
+  --accent: #3f5d4f;
+}
+.hobby-card--ink {
+  --accent: #2f4a6b;
+}
+.hobby-card--gold {
+  --accent: #a97a1f;
+}

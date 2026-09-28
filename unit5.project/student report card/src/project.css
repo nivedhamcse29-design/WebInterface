@@ -1,0 +1,346 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f3ff;
+  color: #333;
+}
+
+/* NAVBAR */
+
+.navbar {
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  color: white;
+  padding: 15px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ddd6fe;
+}
+
+/* DASHBOARD */
+
+.dashboard,
+.students-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome p {
+  color: #7c3aed;
+  font-weight: bold;
+}
+
+.welcome h1 {
+  color: #312e81;
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.welcome span {
+  color: #444;
+}
+
+.admin {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px #ddd;
+}
+
+/* CARDS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 5px;
+}
+
+.card p {
+  margin: 8px 0;
+}
+
+.card b {
+  font-size: 30px;
+}
+
+.purple {
+  background: #7c3aed;
+}
+
+.green {
+  background: #16a34a;
+}
+
+.orange {
+  background: #f97316;
+}
+
+.blue {
+  background: #2563eb;
+}
+
+/* PANEL */
+
+.panel {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #ddd;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.panel h2 {
+  color: #4f46e5;
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.panel p {
+  color: #555;
+  margin: 0 0 20px;
+}
+
+.view-button {
+  display: inline-block;
+  background: #7c3aed;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.view-button:hover {
+  background: #5b21b6;
+}
+
+/* STUDENT PAGE */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  color: #4f46e5;
+}
+
+.add-button {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  background: #5b21b6;
+}
+
+/* SEARCH */
+
+.search {
+  background: white;
+  padding: 12px;
+  margin: 25px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ddd;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  width: 90%;
+  font-size: 15px;
+}
+
+/* TABLE */
+
+.table-box {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 3px 12px #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #4f46e5;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #f5f3ff;
+}
+
+.grade {
+  background: #ede9fe;
+  color: #7c3aed;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.pass {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 5px 7px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.fail {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 5px 7px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.edit,
+.delete {
+  border: none;
+  padding: 7px;
+  margin: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit {
+  background: #dbeafe;
+}
+
+.delete {
+  background: #fee2e2;
+}
+
+/* ABOUT */
+
+.about {
+  width: 85%;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.about h1 {
+  color: #4f46e5;
+}
+
+.about > p {
+  color: #555;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.features div {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px #ddd;
+}
+
+.features h3 {
+  color: #7c3aed;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .cards,
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .navbar,
+  .welcome,
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .welcome {
+    text-align: center;
+  }
+
+  .welcome h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 500px) {
+  .cards,
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+  .dashboard,
+  .students-page {
+    width: 94%;
+  }
+}

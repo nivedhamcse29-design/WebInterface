@@ -1,0 +1,42 @@
+:root {
+  --ink: #16223b;
+  --ink-2: #1f3155;
+  --parchment: #f3ecd9;
+  --paper: #fffdf8;
+  --brass: #b8912f;
+  --brass-light: #e4c876;
+  --seal-green: #2f6b4f;
+  --seal-rust: #9c4a32;
+  --slate: #5b6472;
+  --rule: #d9cfb4;
+
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-accent: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--parchment);
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+a {
+  font-family: inherit;
+}
