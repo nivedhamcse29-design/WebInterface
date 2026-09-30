@@ -6,7 +6,7 @@ import {
   TodoPage,
   About
 } from "./project.jsx";
-import "./Project.css";
+import "./project.css";
 
 function App() {
   return (
