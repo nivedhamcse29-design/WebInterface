@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
@@ -17,12 +16,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -35,99 +32,54 @@ jobs:
         run: |
           mkdir -p "_site"
 
-      # Unit 1 - Normal HTML projects
-
       - name: Copy Unit 1 projects
         run: |
           mkdir -p "_site/unit1.project"
-
-          cp "unit1.project/project1.html" \
-             "_site/unit1.project/project1.html"
-
-          cp "unit1.project/project2.html" \
-             "_site/unit1.project/project2.html"
-
-
-      # Build Unit 2 - Unit 5 React projects
+          cp "unit1.project/project1.html" "_site/unit1.project/project1.html"
+          cp "unit1.project/project2.html" "_site/unit1.project/project2.html"
 
       - name: Build React projects
         shell: bash
         run: |
-
           for unit in unit2.project unit3.project unit4.project unit5.project
           do
-
             echo "=============================="
             echo "Processing $unit"
             echo "=============================="
 
             for project in "$unit"/*
             do
-
               if [ -d "$project" ] && [ -f "$project/package.json" ]
               then
-
                 echo "Building: $project"
 
                 cd "$project"
-
                 npm install
-
-                if grep -q '"vite"' package.json
-          then
-         echo "Vite project detected"
-         node node_modules/vite/bin/vite.js build
-         else
-         echo "Create React App project detected"
-         npm run build
-         fi
-
-                
-
+                npm run build
                 cd - > /dev/null
 
                 target="_site/$project"
-
                 mkdir -p "$target"
 
-                # Vite projects
                 if [ -d "$project/dist" ]
                 then
-
                   echo "Vite build detected"
-
                   cp -r "$project/dist"/. "$target"/
-
-                # Create React App projects
                 elif [ -d "$project/build" ]
                 then
-
                   echo "Create React App build detected"
-
                   cp -r "$project/build"/. "$target"/
-
                 else
-
                   echo "ERROR: No dist or build folder found"
                   exit 1
-
                 fi
-
               fi
-
             done
-
           done
-
-
-      # Main homepage
 
       - name: Copy main index
         run: |
           cp index.html "_site/index.html"
-
-
-      # GitHub Pages
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -137,11 +89,8 @@ jobs:
         with:
           path: "_site"
 
-
   deploy:
-
     needs: build
-
     runs-on: ubuntu-latest
 
     environment:
@@ -149,7 +98,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
