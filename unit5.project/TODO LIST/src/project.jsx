@@ -1,3 +1,4 @@
+import "./Project.css"
 import React, {
   createContext,
   useContext,
