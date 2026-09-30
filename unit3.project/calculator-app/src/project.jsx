@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Project.css";
+import "./project.css";
 
 function Project() {
   const [num1, setNum1] = useState("");
