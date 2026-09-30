@@ -32,13 +32,23 @@ jobs:
           node-version: 20
 
       - name: Create site folder
-        run: mkdir -p _site
+        run: |
+          mkdir -p "_site"
 
-      - name: Copy Unit 1 HTML projects
+      # Unit 1 - Normal HTML projects
+
+      - name: Copy Unit 1 projects
         run: |
           mkdir -p "_site/unit1.project"
-          cp "unit1.project/project1.html" "_site/unit1.project/project1.html"
-          cp "unit1.project/project2.html" "_site/unit1.project/project2.html"
+
+          cp "unit1.project/project1.html" \
+             "_site/unit1.project/project1.html"
+
+          cp "unit1.project/project2.html" \
+             "_site/unit1.project/project2.html"
+
+
+      # Build Unit 2 - Unit 5 React projects
 
       - name: Build React projects
         shell: bash
@@ -47,7 +57,9 @@ jobs:
           for unit in unit2.project unit3.project unit4.project unit5.project
           do
 
+            echo "=============================="
             echo "Processing $unit"
+            echo "=============================="
 
             for project in "$unit"/*
             do
@@ -55,17 +67,42 @@ jobs:
               if [ -d "$project" ] && [ -f "$project/package.json" ]
               then
 
-                echo "Building $project"
+                echo "Building: $project"
 
-                npm install --prefix "$project"
+                cd "$project"
 
-                npm run build --prefix "$project" -- --base=./
+                npm install
+
+                npm run build
+
+                cd - > /dev/null
 
                 target="_site/$project"
 
                 mkdir -p "$target"
 
-                cp -r "$project/dist"/. "$target"/
+                # Vite projects
+                if [ -d "$project/dist" ]
+                then
+
+                  echo "Vite build detected"
+
+                  cp -r "$project/dist"/. "$target"/
+
+                # Create React App projects
+                elif [ -d "$project/build" ]
+                then
+
+                  echo "Create React App build detected"
+
+                  cp -r "$project/build"/. "$target"/
+
+                else
+
+                  echo "ERROR: No dist or build folder found"
+                  exit 1
+
+                fi
 
               fi
 
@@ -73,8 +110,15 @@ jobs:
 
           done
 
+
+      # Main homepage
+
       - name: Copy main index
-        run: cp index.html _site/index.html
+        run: |
+          cp index.html "_site/index.html"
+
+
+      # GitHub Pages
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -82,7 +126,8 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: _site
+          path: "_site"
+
 
   deploy:
 
@@ -91,15 +136,11 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-
       name: github-pages
-
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
 
       - name: Deploy to GitHub Pages
-
         id: deployment
-
         uses: actions/deploy-pages@v4
