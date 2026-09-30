@@ -1,12 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {
-  ReportProvider,
-  Admin,
-  Students,
-  About
-} from "./Project";
-import "./Project.css";
+import { ReportProvider, Admin, Students, About } from "./project";
+import "./project.css";
 
 function App() {
   return (
