@@ -73,7 +73,16 @@ jobs:
 
                 npm install
 
-                node node_modules/vite/bin/vite.js build
+                if grep -q '"vite"' package.json
+          then
+         echo "Vite project detected"
+         node node_modules/vite/bin/vite.js build
+         else
+         echo "Create React App project detected"
+         npm run build
+         fi
+
+                
 
                 cd - > /dev/null
 
