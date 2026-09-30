@@ -1,0 +1,105 @@
+name: Deploy Web Interface Projects
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Create site folder
+        run: mkdir -p _site
+
+      - name: Copy Unit 1 HTML projects
+        run: |
+          mkdir -p "_site/unit1.project"
+          cp "unit1.project/project1.html" "_site/unit1.project/project1.html"
+          cp "unit1.project/project2.html" "_site/unit1.project/project2.html"
+
+      - name: Build React projects
+        shell: bash
+        run: |
+
+          for unit in unit2.project unit3.project unit4.project unit5.project
+          do
+
+            echo "Processing $unit"
+
+            for project in "$unit"/*
+            do
+
+              if [ -d "$project" ] && [ -f "$project/package.json" ]
+              then
+
+                echo "Building $project"
+
+                npm install --prefix "$project"
+
+                npm run build --prefix "$project" -- --base=./
+
+                target="_site/$project"
+
+                mkdir -p "$target"
+
+                cp -r "$project/dist"/. "$target"/
+
+              fi
+
+            done
+
+          done
+
+      - name: Copy main index
+        run: cp index.html _site/index.html
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    environment:
+
+      name: github-pages
+
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+
+      - name: Deploy to GitHub Pages
+
+        id: deployment
+
+        uses: actions/deploy-pages@v4
