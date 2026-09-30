@@ -1,4 +1,4 @@
-name: Deploy Web Interface Projects
+name: Deploy WebInterface
 
 on:
   push:
@@ -29,18 +29,19 @@ jobs:
           node-version: 20
 
       - name: Create site folder
-        run: |
-          mkdir -p "_site"
+        run: mkdir -p site
 
       - name: Copy Unit 1 projects
         run: |
-          mkdir -p "_site/unit1.project"
-          cp "unit1.project/project1.html" "_site/unit1.project/project1.html"
-          cp "unit1.project/project2.html" "_site/unit1.project/project2.html"
+          mkdir -p site/unit1
+          cp unit1.project/project1.html site/unit1/
+          cp unit1.project/project2.html site/unit1/
 
       - name: Build React projects
         shell: bash
         run: |
+          set -e
+
           for unit in unit2.project unit3.project unit4.project unit5.project
           do
             echo "=============================="
@@ -54,24 +55,32 @@ jobs:
                 echo "Building: $project"
 
                 cd "$project"
-                npm install
-                npm run build
+
+                npm install --include=dev
+
+                if [ -f "node_modules/.bin/vite" ]
+                then
+                  chmod +x node_modules/.bin/vite
+                fi
+
+                if grep -q '"build"' package.json
+                then
+                  npm run build
+                fi
+
                 cd - > /dev/null
 
-                target="_site/$project"
-                mkdir -p "$target"
+                project_name=$(basename "$project")
+                project_name=$(echo "$project_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
                 if [ -d "$project/dist" ]
                 then
-                  echo "Vite build detected"
-                  cp -r "$project/dist"/. "$target"/
+                  mkdir -p "site/$project_name"
+                  cp -r "$project/dist/"* "site/$project_name/"
                 elif [ -d "$project/build" ]
                 then
-                  echo "Create React App build detected"
-                  cp -r "$project/build"/. "$target"/
-                else
-                  echo "ERROR: No dist or build folder found"
-                  exit 1
+                  mkdir -p "site/$project_name"
+                  cp -r "$project/build/"* "site/$project_name/"
                 fi
               fi
             done
@@ -79,23 +88,28 @@ jobs:
 
       - name: Copy main index
         run: |
-          cp index.html "_site/index.html"
+          cp index.html site/index.html
+
+      - name: Add GitHub Pages SPA fallback
+        run: |
+          cp site/index.html site/404.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site"
+          path: site
 
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    needs: build
 
     steps:
       - name: Deploy to GitHub Pages
