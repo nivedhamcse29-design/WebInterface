@@ -20,12 +20,12 @@
 
         header {
             text-align: center;
-            padding: 35px 20px 20px;
+            padding: 40px 20px 25px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 30px;
+            font-size: 32px;
         }
 
         header p {
@@ -34,61 +34,53 @@
         }
 
         .projects {
-            width: 850px;
+            width: 900px;
             max-width: 90%;
-            margin: 20px auto 50px;
-
+            margin: auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 20px;
+            padding-bottom: 40px;
         }
 
         .card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 22px;
+            border-radius: 12px;
             border: 1px solid #e5e5e5;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0,0,0,.08);
         }
 
         .number {
-            display: inline-block;
-            background: #eef4ff;
-            color: #3b73d1;
-            padding: 4px 7px;
-            border-radius: 4px;
-            font-size: 10px;
+            color: #1769e0;
+            font-size: 12px;
             font-weight: bold;
         }
 
-        .card h2 {
-            font-size: 17px;
-            margin: 10px 0 5px;
+        h2 {
+            font-size: 19px;
+            margin: 10px 0;
         }
 
         .card p {
             color: #777;
-            font-size: 12px;
-            margin: 5px 0;
+            font-size: 13px;
         }
 
         .tech {
-            color: #4b6fd8 !important;
-            margin-top: 10px !important;
+            color: #1769e0 !important;
+            font-weight: bold;
         }
 
         .button {
             display: inline-block;
-            margin-top: 12px;
-            padding: 8px 13px;
-
+            margin-top: 10px;
+            padding: 9px 15px;
             background: #1769e0;
             color: white;
-
             text-decoration: none;
-            border-radius: 4px;
-
-            font-size: 11px;
+            border-radius: 6px;
+            font-size: 12px;
         }
 
         .button:hover {
@@ -99,10 +91,10 @@
             text-align: center;
             padding: 20px;
             color: #999;
-            font-size: 11px;
+            font-size: 12px;
         }
 
-        @media (max-width: 700px) {
+        @media(max-width:700px) {
             .projects {
                 grid-template-columns: 1fr;
             }
@@ -113,274 +105,126 @@
 <body>
 
 <header>
-
-    <h1>WebInterface</h1>
-
-    <p>
-        Explore My Web & Development Projects
-    </p>
-
+    <h1>WebInterface Projects</h1>
+    <p>Unit 1 to Unit 5 — Project Collection</p>
 </header>
-
 
 <div class="projects">
 
-    <!-- 01 -->
-
+    <!-- PROJECT 1 -->
     <div class="card">
-
-        <span class="number">01</span>
-
+        <span class="number">PROJECT 01</span>
         <h2>Project 1</h2>
-
-        <p>
-            HTML and JavaScript based web project.
-        </p>
-
-        <p class="tech">
-            HTML + CSS + JavaScript
-        </p>
-
-        <a
-            class="button"
-            href="./unit1.project/project1.html">
+        <p>HTML and JavaScript based project.</p>
+        <p class="tech">HTML + CSS + JavaScript</p>
+        <a class="button" href="./unit1.project/project1.html">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 02 -->
-
+    <!-- PROJECT 2 -->
     <div class="card">
-
-        <span class="number">02</span>
-
+        <span class="number">PROJECT 02</span>
         <h2>Project 2</h2>
-
-        <p>
-            HTML and CSS based web project.
-        </p>
-
-        <p class="tech">
-            HTML + CSS
-        </p>
-
-        <a
-            class="button"
-            href="./unit1.project/project2.html">
+        <p>HTML and JavaScript based project.</p>
+        <p class="tech">HTML + CSS + JavaScript</p>
+        <a class="button" href="./unit1.project/project2.html">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 03 -->
-
+    <!-- PROJECT 3 -->
     <div class="card">
-
-        <span class="number">03</span>
-
-        <h2>Student Dashboard</h2>
-
-        <p>
-            Modern dashboard for student information.
-        </p>
-
-        <p class="tech">
-            React + CSS
-        </p>
-
-        <a
-            class="button"
-            href="./unit2.project/student-dashboard/">
-            View Project →
-        </a>
-
-    </div>
-
-
-    <!-- 04 -->
-
-    <div class="card">
-
-        <span class="number">04</span>
-
+        <span class="number">PROJECT 03</span>
         <h2>Hobby Card</h2>
-
-        <p>
-            Creative webpage showcasing personal hobbies.
-        </p>
-
-        <p class="tech">
-            React + HTML + CSS
-        </p>
-
-        <a
-            class="button"
-            href="./unit2.project/Hobby-Card/">
+        <p>Interactive hobby card React project.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit2.project/Hobby-Card/dist/">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 05 -->
-
+    <!-- PROJECT 4 -->
     <div class="card">
+        <span class="number">PROJECT 04</span>
+        <h2>Student Dashboard</h2>
+        <p>Student information dashboard.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit2.project/student-dashboard/build/">
+            View Project →
+        </a>
+    </div>
 
-        <span class="number">05</span>
-
+    <!-- PROJECT 5 -->
+    <div class="card">
+        <span class="number">PROJECT 05</span>
         <h2>Attendance Tracker</h2>
-
-        <p>
-            Application for tracking student attendance.
-        </p>
-
-        <p class="tech">
-            React + CSS
-        </p>
-
-        <a
-            class="button"
-            href="./unit3.project/attendance_tracker/">
+        <p>Student attendance management project.</p>
+        <p class="tech">React + JavaScript</p>
+        <a class="button" href="./unit3.project/attendance_tracker/dist/">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 06 -->
-
+    <!-- PROJECT 6 -->
     <div class="card">
-
-        <span class="number">06</span>
-
+        <span class="number">PROJECT 06</span>
         <h2>Calculator App</h2>
-
-        <p>
-            Simple calculator application.
-        </p>
-
-        <p class="tech">
-            React + JavaScript
-        </p>
-
-        <a
-            class="button"
-            href="./unit3.project/calculator-app/">
+        <p>Interactive calculator application.</p>
+        <p class="tech">React + JavaScript</p>
+        <a class="button" href="./unit3.project/calculator-app/dist/">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 07 -->
-
+    <!-- PROJECT 7 -->
     <div class="card">
-
-        <span class="number">07</span>
-
+        <span class="number">PROJECT 07</span>
         <h2>Form Validation</h2>
-
-        <p>
-            Form validation project using React.
-        </p>
-
-        <p class="tech">
-            React + CSS + JavaScript
-        </p>
-
-        <a
-            class="button"
-            href="./unit4.project/form_validation/">
+        <p>React form validation project.</p>
+        <p class="tech">React + CSS + JavaScript</p>
+        <a class="button" href="./unit4.project/form_validation/dist/">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 08 -->
-
+    <!-- PROJECT 8 -->
     <div class="card">
-
-        <span class="number">08</span>
-
+        <span class="number">PROJECT 08</span>
         <h2>Portfolio</h2>
-
-        <p>
-            Personal portfolio website.
-        </p>
-
-        <p class="tech">
-            React + CSS
-        </p>
-
-        <a
-            class="button"
-            href="./unit4.project/portfolio/">
+        <p>Personal portfolio created using React.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit4.project/portfolio/dist/">
             View Project →
         </a>
-
     </div>
 
-
-    <!-- 09 -->
-
+    <!-- PROJECT 9 -->
     <div class="card">
-
-        <span class="number">09</span>
-
-        <h2>TODO App</h2>
-
-        <p>
-            Task management application.
-        </p>
-
-        <p class="tech">
-            React + Vite
-        </p>
-
-        <a
-            class="button"
-            href="./unit5.project/TODO%20LIST/">
-            View Project →
-        </a>
-
-    </div>
-
-
-    <!-- 10 -->
-
-    <div class="card">
-
-        <span class="number">10</span>
-
+        <span class="number">PROJECT 09</span>
         <h2>Student Report Card</h2>
-
-        <p>
-            Student report card application.
-        </p>
-
-        <p class="tech">
-            React + CSS
-        </p>
-
-        <a
-            class="button"
-            href="./unit5.project/student%20report%20card/">
+        <p>Student marks and report card project.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./student-report-card/">
             View Project →
         </a>
+    </div>
 
+    <!-- PROJECT 10 -->
+    <div class="card">
+        <span class="number">PROJECT 10</span>
+        <h2>TODO List</h2>
+        <p>Task management application.</p>
+        <p class="tech">React + JavaScript</p>
+        <a class="button" href="./todo-list/">
+            View Project →
+        </a>
     </div>
 
 </div>
 
-
 <footer>
-
-    © 2026 WebInterface Projects | Built with HTML, CSS & React
-
+    © 2026 WebInterface Projects
 </footer>
 
 </body>

@@ -7,9 +7,10 @@ import {
   About
 } from "./Project";
 import "./Project.css";
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/student-report-card">
       <ReportProvider>
         <Routes>
           <Route path="/" element={<Admin />} />
@@ -20,4 +21,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 export default App;
