@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import "./Project.css";
+import "./project.css";
 function Home() {
   return (
     <div className="page home">
