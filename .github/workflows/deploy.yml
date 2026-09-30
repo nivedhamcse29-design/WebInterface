@@ -58,9 +58,9 @@ jobs:
 
                 npm install --include=dev
 
-                if [ -f "node_modules/.bin/vite" ]
+                if [ -d "node_modules/.bin" ]
                 then
-                  chmod +x node_modules/.bin/vite
+                  chmod -R +x node_modules/.bin
                 fi
 
                 if grep -q '"build"' package.json
@@ -87,12 +87,10 @@ jobs:
           done
 
       - name: Copy main index
-        run: |
-          cp index.html site/index.html
+        run: cp index.html site/index.html
 
       - name: Add GitHub Pages SPA fallback
-        run: |
-          cp site/index.html site/404.html
+        run: cp site/index.html site/404.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
