@@ -1,176 +1,244 @@
-<style>
-    * {
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background:
-            radial-gradient(circle at top left, #e8efff 0, transparent 35%),
-            radial-gradient(circle at bottom right, #e9e7ff 0, transparent 35%),
-            #f7f8fc;
-        color: #172033;
-        min-height: 100vh;
-    }
+    <title>WebInterface Projects</title>
 
-    header {
-        text-align: center;
-        padding: 65px 20px 45px;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 42px;
-        font-weight: 800;
-        letter-spacing: -1px;
-        color: #111827;
-    }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, #e8efff 0, transparent 35%),
+                radial-gradient(circle at bottom right, #e9e7ff 0, transparent 35%),
+                #f7f8fc;
+            color: #172033;
+            min-height: 100vh;
+        }
 
-    header h1::after {
-        content: "";
-        display: block;
-        width: 55px;
-        height: 4px;
-        margin: 16px auto 0;
-        border-radius: 10px;
-        background: linear-gradient(90deg, #4f46e5, #06b6d4);
-    }
-
-    header p {
-        margin-top: 16px;
-        color: #64748b;
-        font-size: 15px;
-        letter-spacing: 0.3px;
-    }
-
-    .projects {
-        width: 1100px;
-        max-width: 92%;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        padding-bottom: 55px;
-    }
-
-    .card {
-        position: relative;
-        background: rgba(255, 255, 255, 0.92);
-        padding: 28px;
-        border-radius: 20px;
-        border: 1px solid #e5e7eb;
-        box-shadow: 0 10px 30px rgba(30, 41, 59, 0.07);
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .card::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(90deg, #4f46e5, #06b6d4);
-    }
-
-    .card:hover {
-        transform: translateY(-8px);
-        border-color: #c7d2fe;
-        box-shadow: 0 18px 40px rgba(30, 41, 59, 0.13);
-    }
-
-    .number {
-        display: inline-block;
-        padding: 6px 10px;
-        border-radius: 20px;
-        background: #eef2ff;
-        color: #4f46e5;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-
-    h2 {
-        font-size: 21px;
-        margin: 17px 0 10px;
-        color: #172033;
-    }
-
-    .card p {
-        color: #64748b;
-        font-size: 14px;
-        line-height: 1.6;
-        margin: 7px 0;
-    }
-
-    .tech {
-        display: inline-block;
-        margin-top: 7px !important;
-        color: #0891b2 !important;
-        font-size: 12px !important;
-        font-weight: 700;
-        background: #ecfeff;
-        padding: 5px 9px;
-        border-radius: 7px;
-    }
-
-    .button {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-top: 18px;
-        padding: 11px 18px;
-        background: linear-gradient(135deg, #4f46e5, #2563eb);
-        color: white;
-        text-decoration: none;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        box-shadow: 0 6px 15px rgba(79, 70, 229, 0.2);
-        transition: all 0.25s ease;
-    }
-
-    .button:hover {
-        transform: translateY(-2px);
-        background: linear-gradient(135deg, #4338ca, #1d4ed8);
-        box-shadow: 0 9px 20px rgba(79, 70, 229, 0.3);
-    }
-
-    footer {
-        margin-top: 15px;
-        padding: 28px 20px;
-        text-align: center;
-        background: #111827;
-        color: #94a3b8;
-        font-size: 12px;
-        letter-spacing: 0.3px;
-    }
-
-    @media (max-width: 700px) {
         header {
-            padding: 45px 15px 30px;
+            text-align: center;
+            padding: 60px 20px 40px;
         }
 
         header h1 {
-            font-size: 30px;
+            margin: 0;
+            font-size: 42px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        header h1::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 4px;
+            margin: 15px auto 0;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #4f46e5, #06b6d4);
+        }
+
+        header p {
+            margin-top: 16px;
+            color: #64748b;
+            font-size: 15px;
         }
 
         .projects {
-            grid-template-columns: 1fr;
+            width: 1100px;
             max-width: 92%;
-            gap: 18px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding-bottom: 50px;
         }
 
         .card {
-            padding: 23px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 28px;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+            transition: 0.3s;
         }
-    }
 
-    @media (min-width: 1200px) {
-        .projects {
-            grid-template-columns: repeat(2, 1fr);
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(30, 41, 59, 0.14);
         }
-    }
-</style>
+
+        .number {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 21px;
+            margin: 17px 0 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 7px 0;
+        }
+
+        .tech {
+            display: inline-block;
+            margin-top: 7px !important;
+            color: #0891b2 !important;
+            font-size: 12px !important;
+            font-weight: bold;
+            background: #ecfeff;
+            padding: 5px 9px;
+            border-radius: 7px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 11px 18px;
+            background: linear-gradient(135deg, #4f46e5, #2563eb);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 28px;
+            text-align: center;
+            background: #111827;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>WebInterface Projects</h1>
+    <p>Unit 1 to Unit 5 — Project Collection</p>
+</header>
+
+<div class="projects">
+
+    <div class="card">
+        <span class="number">PROJECT 01</span>
+        <h2>Project 1</h2>
+        <p>HTML and JavaScript based project.</p>
+        <p class="tech">HTML + CSS + JavaScript</p>
+        <a class="button" href="./unit1.project/project1.html">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 02</span>
+        <h2>Project 2</h2>
+        <p>HTML and JavaScript based project.</p>
+        <p class="tech">HTML + CSS + JavaScript</p>
+        <a class="button" href="./unit1.project/project2.html">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 03</span>
+        <h2>Hobby Card</h2>
+        <p>Interactive hobby card React project.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit2.project/Hobby-Card/dist/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 04</span>
+        <h2>Student Dashboard</h2>
+        <p>Student information dashboard.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit2.project/student-dashboard/build/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 05</span>
+        <h2>Attendance Tracker</h2>
+        <p>Student attendance management project.</p>
+        <p class="tech">React + JavaScript</p>
+        <a class="button" href="./unit3.project/attendance_tracker/dist/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 06</span>
+        <h2>Calculator App</h2>
+        <p>Interactive calculator application.</p>
+        <p class="tech">React + JavaScript</p>
+        <a class="button" href="./unit3.project/calculator-app/dist/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 07</span>
+        <h2>Form Validation</h2>
+        <p>React form validation project.</p>
+        <p class="tech">React + CSS + JavaScript</p>
+        <a class="button" href="./unit4.project/form_validation/dist/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 08</span>
+        <h2>Portfolio</h2>
+        <p>Personal portfolio created using React.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit4.project/portfolio/dist/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 09</span>
+        <h2>Student Report Card</h2>
+        <p>Student marks and report card project.</p>
+        <p class="tech">React + CSS</p>
+        <a class="button" href="./unit5.project/student%20report%20card/dist/">View Project →</a>
+    </div>
+
+    <div class="card">
+        <span class="number">PROJECT 10</span>
+        <h2>TODO List</h2>
+        <p>Task management application.</p>
+        <p class="tech">React + JavaScript</p>
+        <a class="button" href="./unit5.project/TODO%20LIST/dist/">View Project →</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 WebInterface Projects
+</footer>
+
+</body>
+</html>
